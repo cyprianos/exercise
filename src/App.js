@@ -1,50 +1,34 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import './App.css';
 import {Container, Row, Col} from 'reactstrap';
+import {BrowserRouter, Route, Link} from 'react-router-dom'
+
+import Wall from './Wall/Wall';
+import Login from './Login/Login';
+import Home from './Home/Home';
+
 
 export default class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
+
+      <BrowserRouter>
+        <Container className="main">
           <h2>Wall Exercise</h2>
-        </header>
-        <Container>
-          <Row>
-            <Col>.col</Col>
-          </Row>
-          <Row>
-            <Col>.col</Col>
-            <Col>.col</Col>
-            <Col>.col</Col>
-            <Col>.col</Col>
-          </Row>
-          <Row>
-            <Col xs="3">.col-3</Col>
-            <Col xs="auto">.col-auto - variable width content</Col>
-            <Col xs="3">.col-3</Col>
-          </Row>
-          <Row>
-            <Col xs="6">.col-6</Col>
-            <Col xs="6">.col-6</Col>
-          </Row>
-          <Row>
-            <Col xs="6" sm="4">.col-6 .col-sm-4</Col>
-            <Col xs="6" sm="4">.col-6 .col-sm-4</Col>
-            <Col sm="4">.col-sm-4</Col>
-          </Row>
-          <Row>
-            <Col sm={{ size: 6, order: 2, offset: 1 }}>.col-sm-6 .order-sm-2 .offset-sm-1</Col>
-          </Row>
-          <Row>
-            <Col sm="12" md={{ size: 6, offset: 3 }}>.col-sm-12 .col-md-6 .offset-md-3</Col>
-          </Row>
-          <Row>
-            <Col sm={{ size: 'auto', offset: 1 }}>.col-sm-auto .offset-sm-1</Col>
-            <Col sm={{ size: 'auto', offset: 1 }}>.col-sm-auto .offset-sm-1</Col>
-          </Row>
+          <nav>
+            <ul>
+              <li><Link to="/home">Home</Link></li>
+              <li><Link to="/wall"> Wall</Link></li>
+              <li><Link to="/login">Login</Link></li>
+            </ul>
+          </nav>
+            <Route exact path="/" component={Home}/>
+            <Route path="/Home" component={Home}/>
+            <Route path="/login" component={Login}/>
+            <Route path="/wall" component={Wall}/>
         </Container>
-      </div>
+
+      </BrowserRouter>
     );
   }
 }

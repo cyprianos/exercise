@@ -5,9 +5,6 @@ import {shallow} from 'enzyme';
 
 import App from './App';
 
-
-
-
 it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(<App />, div);
@@ -16,7 +13,7 @@ it('renders without crashing', () => {
 
 it('renders without crashing by using enzyme', ()=> {
   const wrapper = shallow(<App/>);
-  const welcome = <h2>Wall Exercise</h2>;
-  expect(wrapper.contains(welcome)).toBe(true);
+  const headerElement = <h2>Wall Exercise</h2>;
+  expect(wrapper.contains(headerElement)).toBe(true);
 
 });
