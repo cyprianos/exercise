@@ -16,7 +16,7 @@ it('renders without crashing', () => {
 
 it('renders without crashing by using enzyme', ()=> {
   const wrapper = shallow(<App/>);
-  const welcome = <h2>Welcome to React</h2>;
+  const welcome = <h2>Wall Exercise</h2>;
   expect(wrapper.contains(welcome)).toBe(true);
 
 });
