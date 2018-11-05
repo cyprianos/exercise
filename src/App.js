@@ -1,11 +1,14 @@
 import React, {Component} from 'react';
 import './App.css';
 import {Container, Row, Col} from 'reactstrap';
-import {BrowserRouter, Route, Link} from 'react-router-dom'
+import {BrowserRouter, Route, Link} from 'react-router-dom';
+
+import SecretRoute from './Auth/SecretRoute';
 
 import Wall from './Wall/Wall';
 import Login from './Login/Login';
 import Home from './Home/Home';
+
 
 
 export default class App extends Component {
@@ -25,7 +28,7 @@ export default class App extends Component {
             <Route exact path="/" component={Home}/>
             <Route path="/Home" component={Home}/>
             <Route path="/login" component={Login}/>
-            <Route path="/wall" component={Wall}/>
+            <SecretRoute path="/wall" component={Wall}/>
         </Container>
 
       </BrowserRouter>

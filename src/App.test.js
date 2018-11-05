@@ -15,5 +15,4 @@ it('renders without crashing by using enzyme', ()=> {
   const wrapper = shallow(<App/>);
   const headerElement = <h2>Wall Exercise</h2>;
   expect(wrapper.contains(headerElement)).toBe(true);
-
 });
