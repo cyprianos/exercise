@@ -69,12 +69,12 @@ export default class Wall extends React.Component {
         <div className="wall__container">
           {posts.filter(this.searchStringFilter).map(post => (
 
-            <div className="wall__post" key={post.id}>
+            <Link to={`/details/${post.id}`}  className="wall__post" key={post.id}>
               <h3 className="wall__user">{post.username}</h3>
-              <Link to={`/details/${post.id}`} className="wall__title">
+              <div className="wall__title">
                 {post.title}
-              </Link>
-            </div>
+              </div>
+            </Link>
 
           ))}
         </div>
