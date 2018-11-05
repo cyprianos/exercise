@@ -9,6 +9,7 @@ import AuthProvider, {AuthContext} from './Auth/AuthProvider';
 import Wall from './Wall/Wall';
 import Login from './Login/Login';
 import Home from './Home/Home';
+import Details from './Details/Details';
 
 
 export default class App extends Component {
@@ -38,6 +39,7 @@ export default class App extends Component {
                 <Route exact path="/" component={Home}/>
                 <Route path="/Home" component={Home}/>
                 <Route path="/login" component={Login}/>
+                <Route path="/details/:id" component={Details}/>
                 <SecretRoute path="/wall" component={Wall}/>
 
               </Container>

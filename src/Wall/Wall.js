@@ -3,6 +3,8 @@ import React from "react";
 import './Wall.scss';
 import Chance from 'chance'
 
+import {Link} from 'react-router-dom';
+
 const chance = new Chance();
 
 export default class Wall extends React.Component {
@@ -43,12 +45,12 @@ export default class Wall extends React.Component {
 
   }
 
-  match = (object, property,phrase) => {
+  match = (object, property, phrase) => {
     return object[property].toLowerCase().includes(phrase.toLowerCase());
   };
 
   searchStringFilter = (post) => {
-    return this.match(post,'body',this.state.searchString) || this.match(post,'title',this.state.searchString)
+    return this.match(post, 'body', this.state.searchString) || this.match(post, 'title', this.state.searchString)
   };
 
   handleChange(e) {
@@ -66,10 +68,14 @@ export default class Wall extends React.Component {
         <input id="search" name="search" value={this.state.searchString} onChange={this.handleChange}/>
         <div className="wall__container">
           {posts.filter(this.searchStringFilter).map(post => (
+
             <div className="wall__post" key={post.id}>
               <h3 className="wall__user">{post.username}</h3>
-              <div className="wall__title">{post.title}</div>
+              <Link to={`/details/${post.id}`} className="wall__title">
+                {post.title}
+              </Link>
             </div>
+
           ))}
         </div>
       </div>
