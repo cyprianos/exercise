@@ -8,13 +8,13 @@ export const AuthContext = React.createContext();
 
 export default class AuthProvider extends Component {
   constructor(props) {
-
     super(props);
     let self = this;
     this.state = {
       secretDB: {
         'admin': 'Password123'
       },
+      users: new Map(),
       loggedIn: AuthProvider.hasAccess(),
       login(username, password) {
         if (this.secretDB[username] === password) {
