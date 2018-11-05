@@ -2,7 +2,7 @@ export const SESSION_PROPERTY = "thisAuthIsNotVerySmart";
 const TRUE_STRING = 'true';
 
 export default class Auth {
-  constructor(secretDB = {"root": "root123"}) {
+  constructor(secretDB = {"admin": "password"}) {
     this.secretDB = secretDB;
   }
 
