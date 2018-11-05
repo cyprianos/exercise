@@ -1,0 +1,29 @@
+$minTablet: 768px;
+$minDesktop: 992px;
+.wall {
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  &__post {
+    flex: 100% 1 1;
+    padding:20px;
+    @media (min-width: $minTablet) {
+      flex: 50% 1 1;
+    }
+    @media (min-width: 992px) {
+      flex: 33.33% 1 1;
+    }
+  }
+  &__title {
+
+  }
+  &__description {
+
+  }
+
+  &__search {
+
+  }
+}

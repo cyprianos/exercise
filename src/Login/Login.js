@@ -24,7 +24,6 @@ export default class Login extends React.Component {
     super(props);
   }
 
-
   render() {
     if (AuthProvider.hasAccess()) {
       return <Redirect to="/wall"/>
