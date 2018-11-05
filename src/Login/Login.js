@@ -2,10 +2,9 @@ import React from "react";
 import {Button, Form, FormGroup, Label, Input, Alert} from 'reactstrap';
 import {Formik, ErrorMessage} from "formik";
 import * as Yup from 'yup';
+import {Redirect} from 'react-router-dom';
 
-import Auth from '../Auth/Auth';
-
-const auth = new Auth();
+import AuthProvider, {AuthContext} from '../Auth/AuthProvider';
 
 const LoginFormValidationSchema = Yup.object().shape({
   username: Yup.string()
@@ -20,50 +19,46 @@ const LoginFormValidationSchema = Yup.object().shape({
 export default class Login extends React.Component {
   constructor(props) {
     super(props);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit(values, actions) {
-    console.log(values);
-    const loggedIn = auth.login(values.username, values.password);
-    if (!loggedIn) {
-      actions.setErrors("dupa")
-    }
-
-    this.forceUpdate();
-
-  }
 
   render() {
+    if (AuthProvider.hasAccess()) {
+      return <Redirect to="/wall"/>
+    }
     return (
-      <Formik initialValues={{username: 'x', password: 'z'}}
-              validationSchema={LoginFormValidationSchema}
-              validate={values => {
-                let errors = {};
-                return errors;
-              }}
-              onSubmit={this.handleSubmit}
-      >{({errors, touched, handleSubmit, handleChange, handleBlur}) => (
-        <Form onSubmit={handleSubmit}>
-          <h3>Login</h3>
-          <FormGroup>
-            <Label for="username">Username</Label>
-            <Input onChange={handleChange} onBlur={handleBlur} id="username" name="username"/>
-            <ErrorMessage name="username">{msg => <Alert color="danger">{msg}</Alert>}</ErrorMessage>
-          </FormGroup>
-          <FormGroup>
-            <Label for="password">Password</Label>
-            <Input onChange={handleChange} onBlur={handleBlur} id="password" name="password" type="password"/>
-            <ErrorMessage name="password">{msg => <Alert color="danger">{msg}</Alert>}</ErrorMessage>
-          </FormGroup>
+      <AuthContext.Consumer>
+        {(auth) => (
+          <Formik initialValues={{username: '', password: ''}}
+                  validationSchema={LoginFormValidationSchema}
+                  validate={values => {
+                    let errors = {};
+                    return errors;
+                  }}
+                  onSubmit={(values, actions)=>{auth.state.login(values.username, values.password)}}
+          >{({errors, touched, handleSubmit, handleChange, handleBlur}) => (
+            <Form onSubmit={handleSubmit}>
+              <h3>Login</h3>
+              <FormGroup>
+                <Label for="username">Username</Label>
+                <Input onChange={handleChange} onBlur={handleBlur} id="username" name="username"/>
+                <ErrorMessage name="username">{msg => <Alert color="danger">{msg}</Alert>}</ErrorMessage>
+              </FormGroup>
+              <FormGroup>
+                <Label for="password">Password</Label>
+                <Input onChange={handleChange} onBlur={handleBlur} id="password" name="password" type="password"/>
+                <ErrorMessage name="password">{msg => <Alert color="danger">{msg}</Alert>}</ErrorMessage>
+              </FormGroup>
 
-          <Button type="submit">Submit</Button>
+              <Button type="submit">Submit</Button>
 
-        </Form>
-      )}
+            </Form>
+          )}
 
-      </Formik>
+          </Formik>
+        )}
 
+      </AuthContext.Consumer>
     )
 
   }

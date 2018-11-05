@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Route, Redirect} from 'react-router-dom';
-import Auth from './Auth';
+import Auth from './AuthProvider';
 
 
 
