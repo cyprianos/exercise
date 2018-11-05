@@ -13,6 +13,9 @@ const LoginFormValidationSchema = Yup.object().shape({
   password: Yup.string()
     .min(8, 'Too short password')
     .required('Required!')
+    .matches(/[a-z]/, 'Should match at least one lowercase letter')
+    .matches(/[A-Z]/, 'Should match at least one uppercase letter')
+    .matches(/[0-9]/, 'Should match at least one number')
 });
 
 
@@ -35,7 +38,9 @@ export default class Login extends React.Component {
                     let errors = {};
                     return errors;
                   }}
-                  onSubmit={(values, actions)=>{auth.state.login(values.username, values.password)}}
+                  onSubmit={(values, actions) => {
+                    auth.state.login(values.username, values.password)
+                  }}
           >{({errors, touched, handleSubmit, handleChange, handleBlur}) => (
             <Form onSubmit={handleSubmit}>
               <h3>Login</h3>

@@ -13,7 +13,7 @@ export default class AuthProvider extends Component {
     let self = this;
     this.state = {
       secretDB: {
-        'admin': 'password'
+        'admin': 'Password123'
       },
       loggedIn: AuthProvider.hasAccess(),
       login(username, password) {
