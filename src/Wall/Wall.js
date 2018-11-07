@@ -69,17 +69,15 @@ class Wall extends React.Component {
 const mapStateToProps = (state) => {
   return {
     counter: state.counter,
-    posts: state.posts,
-    // authenticated:state.auth
+    posts: state.posts
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-      onIncrementCounter: () => dispatch(increment()),
+    onIncrementCounter: () => dispatch(increment()),
     fetchPosts: (url) => dispatch(fetchPosts(url))
   };
 };
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(Wall);

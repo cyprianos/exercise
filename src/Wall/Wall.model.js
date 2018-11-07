@@ -12,10 +12,8 @@ const postGenerator = async function*(posts) {
   }
 };
 
-
 export function fetchPosts(url) {
   return (dispatch, getState) => {
-    console.log('fetchurl');
     fetch(url)
       .then((response) => response.json())
       .then(posts => posts.concat().sort((a, b) => b.id - a.id))
