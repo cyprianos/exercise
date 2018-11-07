@@ -2,6 +2,7 @@ import React from "react";
 
 import connect from "react-redux/es/connect/connect";
 
+import {Link} from 'react-router-dom';
 class Details extends React.Component {
   constructor(props) {
     super(props)
@@ -15,7 +16,12 @@ class Details extends React.Component {
   render() {
     const postId = parseInt(this.getPostId(), 10);
     const post = this.props.posts.filter((post) => post.id === postId)[0];
-    return <div>
+    return <div className="details">
+      <div className="details__top">
+        <Link className="details__back" to='/wall'>
+          <button>Back</button>
+        </Link>
+      </div>
       {post && <div>
         <h2>{post.title || ''}</h2>
         <h4>{post.username || ''}</h4>

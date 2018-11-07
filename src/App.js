@@ -35,24 +35,11 @@ export default class App extends Component {
             <AuthContext.Consumer>
               {(auth) => (
                 <Container className="main">
-                  <h2>Wall Exercise</h2>
-                  <nav>
-                    <ul>
-                      <li><Link to="/home">Home</Link></li>
-                      {auth.state.loggedIn && <li><Link to="/wall"> Wall</Link></li>}
-                      {!auth.state.loggedIn && <li><Link to="/login">Login</Link></li>}
-                      {auth.state.loggedIn && <li>
-                        <button onClick={() => {
-                          auth.state.logout();
-                        }}>Logout
-                        </button>
-                      </li>}
-                    </ul>
-                  </nav>
-                  <Route exact path="/" component={Home}/>
-                  <Route path="/Home" component={Home}/>
+                  <h2>HSBC Exercise</h2>
+
+                  <Route exact path="/" component={Wall}/>
                   <Route path="/login" component={Login}/>
-                  <Route path="/details/:id" component={Details}/>
+                  <SecretRoute path="/details/:id" component={Details}/>
                   <SecretRoute path="/wall" component={Wall}/>
                 </Container>
               )}

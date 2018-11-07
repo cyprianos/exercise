@@ -45,12 +45,12 @@ export default class Login extends React.Component {
               <h3>Login</h3>
               <FormGroup>
                 <Label for="username">Username</Label>
-                <Input onChange={handleChange} onBlur={handleBlur} id="username" name="username"/>
+                <Input onChange={handleChange} onBlur={handleBlur} id="username" name="username" placeholder="admin"/>
                 <ErrorMessage name="username">{msg => <Alert color="danger">{msg}</Alert>}</ErrorMessage>
               </FormGroup>
               <FormGroup>
                 <Label for="password">Password</Label>
-                <Input onChange={handleChange} onBlur={handleBlur} id="password" name="password" type="password"/>
+                <Input onChange={handleChange} onBlur={handleBlur} id="password" name="password" type="password" placeholder="Password123"/>
                 <ErrorMessage name="password">{msg => <Alert color="danger">{msg}</Alert>}</ErrorMessage>
               </FormGroup>
 

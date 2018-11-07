@@ -1,0 +1,12 @@
+.details {
+  &__top{
+    display: flex;
+  }
+  &__back {
+    display: block;
+    flex:1;
+    button {
+      width: 100%;
+    }
+  }
+}
