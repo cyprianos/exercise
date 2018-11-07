@@ -1,66 +1,23 @@
 import React from "react";
-
-import './Wall.scss';
-import Chance from 'chance'
-
 import {Link} from 'react-router-dom';
 
-const chance = new Chance();
+import {connect} from 'react-redux';
 
-export default class Wall extends React.Component {
+import './Wall.scss';
+
+import {fetchPosts} from './Wall.model';
+import {increment} from "../Counter/Counter.reducer";
+
+class Wall extends React.Component {
+  state = {
+    searchString: ''
+  };
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
-
-    this.state = {
-      posts: [],
-      searchString: ''
-    }
   }
-  //generator delays post
-  static postGenerator = async function*(posts) {
-    for (let i = 0; i < posts.length; i++) {
-      await Wall.promiseTimeout(1000);
-      yield posts[i];
-    }
-  };
-
-  static promiseTimeout(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-  }
-
   componentDidMount() {
-
-    const self = this;
-    fetch('https://jsonplaceholder.typicode.com/posts')
-      .then(response => response.json())
-      .then(data => data.concat().sort((a, b) => b.id - a.id))
-      .then(posts => {
-        //setup random (but not persistent) users
-        const users = new Set(posts.map(post => post.userId));
-        const usernames = new Map();
-        for (let [key, value] of users.entries()) {
-          usernames.set(value, chance.name());
-        }
-        self.setState({users: usernames});
-
-        return posts.map(post => {
-          return {
-            ...post,
-            username: usernames.get(post.userId)
-          }
-        });
-      })
-      .then(async (posts) => {
-        for await (const post of Wall.postGenerator(posts)) {
-          //update posts collection based on previous state
-          self.setState((state, props)=>{
-            return {
-              posts: [...state.posts, post]
-            }
-          });
-        }
-      })
+    this.props.fetchPosts('https://jsonplaceholder.typicode.com/posts')
   }
 
   static match = (object, property, phrase) => {
@@ -82,14 +39,19 @@ export default class Wall extends React.Component {
   }
 
   render() {
-    const {posts, searchString} = this.state;
+    const {searchString} = this.state;
 
 
     return (
       <div className="wall">
-        <input id="search" name="search" value={this.state.searchString} onChange={this.handleChange}/>
+        <div className="">
+          <h3>Counter</h3>
+          <div>{this.props.counter.value}</div>
+          <button onClick={this.props.onIncrementCounter}>increment</button>
+        </div>
+        <input id="search" name="search" value={searchString} onChange={this.handleChange}/>
         <div className="wall__container">
-          {posts.filter(this.searchStringFilter).map(post => (
+          {this.props.posts.filter(this.searchStringFilter).map(post => (
             <Link to={`/details/${post.id}`} className="wall__post" key={post.id}>
               <h3 className="wall__user">{post.username}</h3>
               <div className="wall__title">
@@ -103,3 +65,21 @@ export default class Wall extends React.Component {
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    counter: state.counter,
+    posts: state.posts,
+    // authenticated:state.auth
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+      onIncrementCounter: () => dispatch(increment()),
+    fetchPosts: (url) => dispatch(fetchPosts(url))
+  };
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Wall);
