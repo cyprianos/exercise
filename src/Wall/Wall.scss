@@ -4,16 +4,16 @@ $minDesktop: 992px;
   &__container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
   &__post {
-    flex: 100% 1 1;
+    flex: 0 1 100%;
     padding:20px;
     @media (min-width: $minTablet) {
-      flex: 50% 1 1;
+      flex: 0 1 50% ;
     }
-    @media (min-width: 992px) {
-      flex: 33.33% 1 1;
+    @media (min-width: $minDesktop) {
+      flex: 0 1 33.33% ;
     }
   }
   &__title {
