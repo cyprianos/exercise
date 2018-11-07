@@ -5,7 +5,7 @@ import connect from "react-redux/es/connect/connect";
 import {Link} from 'react-router-dom';
 class Details extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.getPostId = this.getPostId.bind(this);
   }
 
@@ -37,5 +37,7 @@ const mapStateToProps = (state) => {
     posts: state.posts
   };
 };
+
+
 
 export default connect(mapStateToProps)(Details);

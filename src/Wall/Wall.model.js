@@ -1,6 +1,8 @@
 import {createUser} from '../Users/Users.actions';
 import {createPost} from '../Posts/Posts.actions';
 
+import {modalError} from '../Modal/Modal.actions';
+
 const promiseTimeout = (ms) => {
   return new Promise(resolve => setTimeout(resolve, ms));
 };
@@ -41,6 +43,10 @@ export function fetchPosts(url) {
         }
 
         return posts;
+      })
+      .catch((err)=>{
+        // console.log('err',typeof err.message)
+        return dispatch(modalError(err.message));
       })
   };
 }
