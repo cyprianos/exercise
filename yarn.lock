@@ -958,19 +958,6 @@ amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
 
-"analyze@source-map-explorer build/static/js/main.*":
-  version "0.0.14"
-  resolved "https://registry.yarnpkg.com/analyze/-/analyze-0.0.14.tgz#39eb5f0b8bfeefd584c7d2dbc6d1ac604d83b80b"
-  dependencies:
-    colors "0.6.2"
-    commander "2.0.0"
-    esprima "1.0.4"
-    inherit "2.1.0"
-    js-yaml "2.1.3"
-    puml-link "0.0.1"
-    vow "0.3.10"
-    vow-fs "0.2.3"
-
 ansi-colors@^3.0.0:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/ansi-colors/-/ansi-colors-3.2.1.tgz#9638047e4213f3428a11944a7d4b31cba0a3ff95"
@@ -1030,13 +1017,6 @@ argparse@^1.0.7:
   resolved "https://registry.yarnpkg.com/argparse/-/argparse-1.0.10.tgz#bcd6791ea5ae09725e17e5ad988134cd40b3d911"
   dependencies:
     sprintf-js "~1.0.2"
-
-"argparse@~ 0.1.11":
-  version "0.1.16"
-  resolved "https://registry.yarnpkg.com/argparse/-/argparse-0.1.16.tgz#cfd01e0fbba3d6caed049fbd758d40f65196f57c"
-  dependencies:
-    underscore "~1.7.0"
-    underscore.string "~2.4.0"
 
 aria-query@^3.0.0:
   version "3.0.0"
@@ -2047,10 +2027,6 @@ colors@0.5.x:
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/colors/-/colors-0.5.1.tgz#7d0023eaeb154e8ee9fce75dcb923d0ed1667774"
 
-colors@0.6.2:
-  version "0.6.2"
-  resolved "https://registry.yarnpkg.com/colors/-/colors-0.6.2.tgz#2423fe6678ac0c5dae8852e5d0e5be08c997abcc"
-
 colors@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/colors/-/colors-1.1.2.tgz#168a4701756b6a7f51a12ce0c97bfa28c084ed63"
@@ -2060,10 +2036,6 @@ combined-stream@^1.0.6, combined-stream@~1.0.6:
   resolved "https://registry.yarnpkg.com/combined-stream/-/combined-stream-1.0.7.tgz#2d1d24317afb8abe95d6d2c0b07b57813539d828"
   dependencies:
     delayed-stream "~1.0.0"
-
-commander@2.0.0:
-  version "2.0.0"
-  resolved "http://registry.npmjs.org/commander/-/commander-2.0.0.tgz#d1b86f901f8b64bd941bdeadaf924530393be928"
 
 commander@2.17.x, commander@~2.17.1:
   version "2.17.1"
@@ -3116,10 +3088,6 @@ espree@^4.0.0:
     acorn "^6.0.2"
     acorn-jsx "^5.0.0"
     eslint-visitor-keys "^1.0.0"
-
-esprima@1.0.4, "esprima@~ 1.0.2":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/esprima/-/esprima-1.0.4.tgz#9f557e08fc3b4d26ece9dd34f8fbf476b62585ad"
 
 esprima@^3.1.3:
   version "3.1.3"
@@ -4283,10 +4251,6 @@ inflight@^1.0.4:
     once "^1.3.0"
     wrappy "1"
 
-inherit@2.1.0:
-  version "2.1.0"
-  resolved "http://registry.npmjs.org/inherit/-/inherit-2.1.0.tgz#159acf7b9ab57726a1e1485e54518ee12daf55f3"
-
 inherits@2, inherits@2.0.3, inherits@^2.0.1, inherits@^2.0.3, inherits@~2.0.0, inherits@~2.0.1, inherits@~2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.3.tgz#633c2c83e3da42a502f52466022480f4208261de"
@@ -5056,13 +5020,6 @@ js-levenshtein@^1.1.3:
 js-tokens@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-3.0.2.tgz#9866df395102130e38f7f996bceb65443209c25b"
-
-js-yaml@2.1.3:
-  version "2.1.3"
-  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-2.1.3.tgz#0ffb5617be55525878063d7a16aee7fdd282e84c"
-  dependencies:
-    argparse "~ 0.1.11"
-    esprima "~ 1.0.2"
 
 js-yaml@^3.12.0, js-yaml@^3.7.0, js-yaml@^3.9.0:
   version "3.12.0"
@@ -5948,10 +5905,6 @@ node-sass@^4.10.0:
     sass-graph "^2.2.4"
     stdout-stream "^1.4.0"
     "true-case-path" "^1.0.2"
-
-node-uuid@1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/node-uuid/-/node-uuid-1.4.0.tgz#07f9b2337572ff6275c775e1d48513f3a45d7a65"
 
 nomnom@~1.6.2:
   version "1.6.2"
@@ -7151,10 +7104,6 @@ public-encrypt@^4.0.0:
     parse-asn1 "^5.0.0"
     randombytes "^2.0.1"
     safe-buffer "^5.1.2"
-
-puml-link@0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/puml-link/-/puml-link-0.0.1.tgz#492cd4068fd0c38cd5ead3d148852d4e56b2f4c7"
 
 pump@^2.0.0, pump@^2.0.1:
   version "2.0.1"
@@ -8764,10 +8713,6 @@ uglifyjs-webpack-plugin@^1.2.4:
     webpack-sources "^1.1.0"
     worker-farm "^1.5.2"
 
-underscore.string@~2.4.0:
-  version "2.4.0"
-  resolved "http://registry.npmjs.org/underscore.string/-/underscore.string-2.4.0.tgz#8cdd8fbac4e2d2ea1e7e2e8097c42f442280f85b"
-
 underscore@^1.8.3:
   version "1.9.1"
   resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.9.1.tgz#06dce34a0e68a7babc29b365b8e74b8925203961"
@@ -8775,10 +8720,6 @@ underscore@^1.8.3:
 underscore@~1.4.4:
   version "1.4.4"
   resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.4.4.tgz#61a6a32010622afa07963bf325203cf12239d604"
-
-underscore@~1.7.0:
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.7.0.tgz#6bbaf0877500d36be34ecaa584e0db9fef035209"
 
 unicode-canonical-property-names-ecmascript@^1.0.4:
   version "1.0.4"
@@ -8958,21 +8899,6 @@ vm-browserify@0.0.4:
   resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-0.0.4.tgz#5d7ea45bbef9e4a6ff65f95438e0a87c357d5a73"
   dependencies:
     indexof "0.0.1"
-
-vow-fs@0.2.3:
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/vow-fs/-/vow-fs-0.2.3.tgz#ac8c942c30175f91210f0202d3c27730a0ad9fbe"
-  dependencies:
-    node-uuid "1.4.0"
-    vow-queue "0.0.2"
-
-vow-queue@0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/vow-queue/-/vow-queue-0.0.2.tgz#deba6cfc2a82d6061d10eb3a12fad63a8e6bb64d"
-
-vow@0.3.10:
-  version "0.3.10"
-  resolved "http://registry.npmjs.org/vow/-/vow-0.3.10.tgz#5e27342814f10ec1ebe808b4dd8a84db4863b4cc"
 
 w3c-hr-time@^1.0.1:
   version "1.0.1"

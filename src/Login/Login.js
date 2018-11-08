@@ -20,10 +20,6 @@ const LoginFormValidationSchema = Yup.object().shape({
 
 
 export default class Login extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     if (AuthProvider.hasAccess()) {
       return <Redirect to="/wall"/>

@@ -22,7 +22,8 @@ export function fetchPosts(url) {
       .then(posts=> {
 
         const userNumbers = new Set(posts.map(post => post.userId));
-        for (let [key, value] of userNumbers.entries()) {
+
+        for (let value of userNumbers) {
           dispatch(createUser(value));
         }
 
