@@ -31,14 +31,20 @@ export default class Login extends React.Component {
     return (
       <AuthContext.Consumer>
         {(auth) => (
-          <Formik initialValues={{username: '', password: ''}}
+          <Formik initialValues={{username: '', password: '', credentials:''}}
                   validationSchema={LoginFormValidationSchema}
                   validate={values => {
                     let errors = {};
                     return errors;
                   }}
                   onSubmit={(values, actions) => {
-                    auth.state.login(values.username, values.password)
+                    let success = auth.state.login(values.username, values.password);
+                    if (!success) {
+                      console.log('onsubmit', values, actions);
+                      actions.setSubmitting(false);
+                      actions.setFieldError("credentials", "Password does not match. Password hidden in placeholder:) ");
+                      actions.setStatus({msg: 'Set some arbitrary status or data'});
+                    }
                   }}
           >{({errors, touched, handleSubmit, handleChange, handleBlur}) => (
             <Form onSubmit={handleSubmit}>
@@ -50,11 +56,15 @@ export default class Login extends React.Component {
               </FormGroup>
               <FormGroup>
                 <Label for="password">Password</Label>
-                <Input onChange={handleChange} onBlur={handleBlur} id="password" name="password" type="password" placeholder="Password123"/>
+                <Input onChange={handleChange} onBlur={handleBlur} id="password" name="password" type="password"
+                       placeholder="Password123"/>
                 <ErrorMessage name="password">{msg => <Alert color="danger">{msg}</Alert>}</ErrorMessage>
               </FormGroup>
+              <FormGroup>
+                <ErrorMessage name="credentials">{msg => <Alert color="danger">{msg}</Alert>}</ErrorMessage>
+                <Button type="submit">Submit</Button>
+              </FormGroup>
 
-              <Button type="submit">Submit</Button>
 
             </Form>
           )}
