@@ -1,19 +1,21 @@
 import React from 'react';
-import {shallow} from 'enzyme';
+import {mount, shallow} from 'enzyme';
+import {Button} from 'reactstrap'
 import Login from "./Login";
-import {Button} from 'reactstrap';
+
+import { expect } from 'chai'
 
 describe('login test suite',()=>{
   it('header is displayed on login form',() => {
-    const wrapper = shallow(<Login/>);
-    const headerElement = <h3>Login</h3>;
-    expect(wrapper.contains(headerElement)).toBe(true);
+    const wrapper = mount(<Login />);
+    expect(wrapper.contains(<h3>Login</h3>)).to.equal(true);
   });
 
-  it('login form has submit button',()=>{
-    const wrapper = shallow(<Login/>);
-    const submitButton = <Button>Submit</Button>;
-    expect(wrapper.contains(submitButton)).toBe(true);
+  it('login form has exactly one submit button',()=>{
+    const wrapper = mount(<Login />);
+    console.log(wrapper.html());
+    expect(wrapper.find('button')).to.have.lengthOf(1);
+
   });
 });
 

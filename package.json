@@ -37,6 +37,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "chai": "^4.2.0",
     "react-test-renderer": "^16.6.0"
   }
 }
