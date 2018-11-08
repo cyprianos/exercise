@@ -8,7 +8,6 @@ import './Wall.scss';
 import {fetchPosts} from './Wall.model';
 import {AuthContext} from "../Auth/AuthProvider";
 
-
 class Wall extends React.Component {
   state = {
     searchString: ''

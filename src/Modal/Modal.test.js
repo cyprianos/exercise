@@ -8,7 +8,8 @@ describe('Modal suite', () => {
       message: message
     };
     expect(modalError(message)).toEqual(expectedAction);
-  })
+  });
+
   it('should create action to modal ok', () => {
     const expectedAction = {
       type: MODAL_ACTIONS.MODAL_OK
